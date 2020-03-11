@@ -69,4 +69,5 @@ object Cw_1 extends App {
   print("\nTask 1 C:\n " + task_1_C(weekdays))
   print("\nTask 2 A:\n " + task_2_A(weekdays, 0, ""))
   print("\nTask 2 B:\n " + task_2_B(weekdays, weekdays.size - 1, ""))
+
 }
