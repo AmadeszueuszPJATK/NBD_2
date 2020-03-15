@@ -151,6 +151,23 @@ a.	Metody foldl
     return task_8(in_list, idx + 1)
   }
 
+  /*
+  9.	Zdefiniuj funkcję, przyjmującą listę liczb całkowitych i zwracającą wygenerowaną na jej podstawie listę,
+  w której wszystkie liczby zostały zwiększone o 1. Wykorzystaj mechanizm mapowania kolekcji.
+   */
+  def task_9(in_list : List[Int]): List[Int] ={
+    in_list.map( v => v + 1)
+  }
+
+  /*
+  10.	Stwórz funkcję przyjmującą listę liczb rzeczywistych
+  i zwracającą stworzoną na jej podstawie listę zawierającą wartości bezwzględne elementów
+  z oryginalnej listy należących do przedziału <-5,12>. Wykorzystaj filtrowanie.
+   */
+  def task_10(in_list : List[Double]): List[Double] ={
+    in_list.filter(v => v >= -5.0 && v <= 12.0).map(v => v.abs)
+  }
+
   val weekdays = List("Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela")
 
   print("\nTask 1 A:\n " + task_1_A(weekdays))
@@ -166,4 +183,6 @@ a.	Metody foldl
   task_6(Tuple3("1", 2, 3.0f))
   task_7()
   print("\nTask 8:\n " + task_8(List(0,1,0,2,0,3,0), 0))
+  print("\nTask 9:\n " + task_9(List(1,2,3)))
+  print("\nTask 10:\n " + task_10(List(-10.0, -2.0, 0.0, 4.0, 12.0, 15.0)))
 }
