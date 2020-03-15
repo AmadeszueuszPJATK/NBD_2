@@ -62,6 +62,19 @@ object Cw_1 extends App {
     }
   }
 
+  /*
+  3.	Stwórz funkcję korzystającą z rekurencji ogonowej do zwrócenia oddzielonego przecinkami stringa zawierającego elementy listy z ćwiczenia 1
+   */
+  @scala.annotation.tailrec
+  def task_3(list: List[String], i : Int, output : String) : String = {
+    if(i == list.size - 1){
+      return output + list(i)
+    }else if(i == list.size){
+      return output
+    }
+    return task_3(list, i + 1,  output + (list(i) + ", ") )
+  }
+
   val weekdays = List("Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela")
 
   print("\nTask 1 A:\n " + task_1_A(weekdays))
@@ -69,5 +82,5 @@ object Cw_1 extends App {
   print("\nTask 1 C:\n " + task_1_C(weekdays))
   print("\nTask 2 A:\n " + task_2_A(weekdays, 0, ""))
   print("\nTask 2 B:\n " + task_2_B(weekdays, weekdays.size - 1, ""))
-
+  print("\nTask 3:\n " + task_3(weekdays, 0, ""))
 }
