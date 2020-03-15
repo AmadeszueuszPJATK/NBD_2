@@ -122,6 +122,13 @@ a.	Metody foldl
     in_map.map(v => Tuple2(v._1, v._2 * (1.0f - discount)))
   }
 
+  /*
+  6.	Zdefiniuj funkcję przyjmującą krotkę z 3 wartościami różnych typów i wypisującą je
+   */
+  def task_6(in_tuple : (String, Int, Float)): Unit ={
+    print("\nTask 6:\n " + in_tuple)
+  }
+
   val weekdays = List("Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela")
 
   print("\nTask 1 A:\n " + task_1_A(weekdays))
@@ -134,4 +141,6 @@ a.	Metody foldl
   print("\nTask 4 B:\n " + task_4_B(weekdays))
   print("\nTask 4 C:\n " + task_4_C(weekdays))
   print("\nTask 5:\n " + task_5(Map("Chleb" -> 2.0f, "Maka" -> 10.0f), 0.1f))
+  task_6(Tuple3("1", 2, 3.0f))
+
 }
