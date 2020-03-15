@@ -75,6 +75,10 @@ object Cw_1 extends App {
     return task_3(list, i + 1,  output + (list(i) + ", ") )
   }
 
+  /*
+  4.	Dla listy z ćwiczenia 1 napisz funkcję tworzącą w oparciu o nią stringa z elementami oddzielonymi przecinkami korzystając z:
+a.	Metody foldl
+   */
   def task_4_A(list : List[String]) : String = {
     list.foldLeft(""){ (acc, str) =>
         if(!acc.isEmpty)
@@ -84,6 +88,9 @@ object Cw_1 extends App {
     }
   }
 
+  /*
+  b.	Metody foldr
+   */
   def task_4_B(list : List[String]) : String = {
     list.foldRight(""){ (acc, str) =>
       if(!str.isEmpty)
@@ -93,9 +100,12 @@ object Cw_1 extends App {
     }
   }
 
+  /*
+  c.	Metody foldl wypisując tylko dni z nazwami zaczynającymi się na „P”
+   */
   def task_4_C(list : List[String]) : String = {
     list.foldLeft(""){ (acc, str) =>
-      if( str.charAt(0) != 'P')
+      if(!str.isEmpty && str.charAt(0) == 'P')
         if(!acc.isEmpty)
           acc + ", " + str
         else
@@ -103,6 +113,13 @@ object Cw_1 extends App {
       else
         acc
     }
+  }
+
+  /*
+  5.	Stwórz mapę z nazwami produktów i cenami. Na jej podstawie wygeneruj drugą, z 10% obniżką cen. Wykorzystaj mechanizm mapowania kolekcji.
+   */
+  def task_5(in_map: Map[String, Float], discount : Float) : Map[String, Float] = {
+    in_map.map(v => Tuple2(v._1, v._2 * (1.0f - discount)))
   }
 
   val weekdays = List("Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela")
@@ -116,4 +133,5 @@ object Cw_1 extends App {
   print("\nTask 4 A:\n " + task_4_A(weekdays))
   print("\nTask 4 B:\n " + task_4_B(weekdays))
   print("\nTask 4 C:\n " + task_4_C(weekdays))
+  print("\nTask 5:\n " + task_5(Map("Chleb" -> 2.0f, "Maka" -> 10.0f), 0.1f))
 }
