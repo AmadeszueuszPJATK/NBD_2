@@ -126,7 +126,29 @@ a.	Metody foldl
   6.	Zdefiniuj funkcję przyjmującą krotkę z 3 wartościami różnych typów i wypisującą je
    */
   def task_6(in_tuple : (String, Int, Float)): Unit ={
-    print("\nTask 6:\n " + in_tuple)
+    print("\nTask 6:\n Input tuple: " + in_tuple)
+  }
+
+  /*
+  7.	Zaprezentuj działanie Option na dowolnym przykładzie (np. mapy, w której wyszukujemy wartości po kluczu)
+   */
+  def task_7(): Unit ={
+    val in_map = Map("Key" -> "Value")
+    print("\nTask 7:\n Map(NonExistingKey) is " + in_map.get("NonExistingKey"))
+  }
+
+  /*
+  8.	Napisz funkcję usuwającą zera z listy wartości całkowitych (tzn. zwracającą listę elementów mających wartości różne od 0).
+  Wykorzystaj rekurencję.
+   */
+  def task_8(in_list : List[Int], idx : Int): List[Int] = {
+    if(idx == in_list.size)
+      return in_list
+
+    if(0 == in_list(idx)){
+      return task_8(in_list.take(idx) ++ in_list.drop(idx + 1), idx)
+    }
+    return task_8(in_list, idx + 1)
   }
 
   val weekdays = List("Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela")
@@ -142,5 +164,6 @@ a.	Metody foldl
   print("\nTask 4 C:\n " + task_4_C(weekdays))
   print("\nTask 5:\n " + task_5(Map("Chleb" -> 2.0f, "Maka" -> 10.0f), 0.1f))
   task_6(Tuple3("1", 2, 3.0f))
-
+  task_7()
+  print("\nTask 8:\n " + task_8(List(0,1,0,2,0,3,0), 0))
 }
