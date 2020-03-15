@@ -75,6 +75,36 @@ object Cw_1 extends App {
     return task_3(list, i + 1,  output + (list(i) + ", ") )
   }
 
+  def task_4_A(list : List[String]) : String = {
+    list.foldLeft(""){ (acc, str) =>
+        if(!acc.isEmpty)
+          acc + ", " + str
+        else
+          acc + str
+    }
+  }
+
+  def task_4_B(list : List[String]) : String = {
+    list.foldRight(""){ (acc, str) =>
+      if(!str.isEmpty)
+        acc + ", " + str
+      else
+        acc
+    }
+  }
+
+  def task_4_C(list : List[String]) : String = {
+    list.foldLeft(""){ (acc, str) =>
+      if( str.charAt(0) != 'P')
+        if(!acc.isEmpty)
+          acc + ", " + str
+        else
+          acc + str
+      else
+        acc
+    }
+  }
+
   val weekdays = List("Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "Sobota", "Niedziela")
 
   print("\nTask 1 A:\n " + task_1_A(weekdays))
@@ -83,4 +113,7 @@ object Cw_1 extends App {
   print("\nTask 2 A:\n " + task_2_A(weekdays, 0, ""))
   print("\nTask 2 B:\n " + task_2_B(weekdays, weekdays.size - 1, ""))
   print("\nTask 3:\n " + task_3(weekdays, 0, ""))
+  print("\nTask 4 A:\n " + task_4_A(weekdays))
+  print("\nTask 4 B:\n " + task_4_B(weekdays))
+  print("\nTask 4 C:\n " + task_4_C(weekdays))
 }
